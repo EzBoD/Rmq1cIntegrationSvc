@@ -10,7 +10,7 @@ namespace Rmq1cIntegrationSvc
 {
     class Worker
     {
-        private WorkerConfiguration configuration;
+        private readonly WorkerConfiguration configuration;
         private IModel transportModel;
         private string transportTag = string.Empty;
 
@@ -46,7 +46,7 @@ namespace Rmq1cIntegrationSvc
             }
             catch (Exception e)
             {
-                configuration.logger.WriteEntry($"StartWorker error:\n{e.ToString()}");
+                configuration.logger.WriteEntry($"StartWorker error:\n{e}");
             }
         }
         /// <summary>
@@ -99,7 +99,7 @@ namespace Rmq1cIntegrationSvc
             }
             catch (Exception e)
             {
-                configuration.logger.WriteEntry($"PostMessageTo1C error:\n{e.ToString()}");
+                configuration.logger.WriteEntry($"PostMessageTo1C error:\n{e}");
             }
 
             return result;
@@ -119,12 +119,11 @@ namespace Rmq1cIntegrationSvc
                 transportModel.Dispose();
                 transportModel = null;
                 transportTag = string.Empty;
-                //httpClient.Dispose();
                 configuration.logger.WriteEntry("Consume is stopped.");
             }
             catch (Exception e)
             {
-                configuration.logger.WriteEntry($"StopWorker error:\n{e.ToString()}");
+                configuration.logger.WriteEntry($"StopWorker error:\n{e}");
             }
         }
         /// <summary>
@@ -160,7 +159,7 @@ namespace Rmq1cIntegrationSvc
             }
             catch (Exception e)
             {
-                configuration.logger.WriteEntry($"PublishMessage error:\n{e.ToString()}");
+                configuration.logger.WriteEntry($"PublishMessage error:\n{e}");
             }
         }
     }

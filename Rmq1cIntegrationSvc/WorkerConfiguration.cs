@@ -5,7 +5,7 @@ namespace Rmq1cIntegrationSvc
 {
     class WorkerConfiguration
     {
-        private string registryKeyPath = "";
+        private readonly string registryKeyPath = "";
         public Logger logger;
         public bool Enabled { get; set; }
         public string RmqServer { get; set; } = "";
@@ -64,7 +64,7 @@ namespace Rmq1cIntegrationSvc
             }
             catch (Exception e)
             {
-                logger.WriteEntry("Ошибка при загрузке настроек: \n" + e.ToString());
+                logger.WriteEntry($"Ошибка при загрузке настроек: \n{e}");
             }
         }
         /// <summary>
@@ -95,7 +95,7 @@ namespace Rmq1cIntegrationSvc
             }
             catch (Exception e)
             {
-                logger.WriteEntry("Не удалось создать раздел реестра с настройками по умолчанию:\n" + e.ToString());
+                logger.WriteEntry($"Не удалось создать раздел реестра с настройками по умолчанию:\n{e}");
             }
         }
     }

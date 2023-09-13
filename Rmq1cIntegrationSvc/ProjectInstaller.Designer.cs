@@ -40,7 +40,7 @@ namespace Rmq1cIntegrationSvc
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.Description = "Sample service";
+            this.serviceInstaller1.Description = "Rabbit MQ - 1C Integration";
             this.serviceInstaller1.DisplayName = "Rabbit MQ - 1C Integration";
             this.serviceInstaller1.ServiceName = "Rmq1cIntegrationSvc";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
